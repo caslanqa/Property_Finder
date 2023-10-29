@@ -26,7 +26,7 @@ class Mainpage {
         this.typePrice('Max. Price (BHD)',max);
     }
 
-    searchTheProperty(){
+    clickSearchBtn(){
         Cypress.on('uncaught:exception', (err, runnable) => {
             return false
         })
@@ -36,6 +36,15 @@ class Mainpage {
     selectCheckbox(cbLabel){
         cy.xpath('//label[text()="'+cbLabel+'"]/span').click();
     }
+
+    searchText(text){
+        cy.xpath('(//input[@data-testid="input"])[1]').type(text);
+    }
+
+    selectNthSuggestion(order){
+        cy.get('.multi-selection-autocomplete__suggestions-container>:nth-child('+order+')').click();
+    }
+    
 
 }
 const mainPage = new Mainpage();

@@ -16,7 +16,7 @@ When('Set Property type {string} and Price less then {string}',(type,price) => {
 })
 
 Then("Click to search icon for search",() => {
-    mainPage.searchTheProperty();
+    mainPage.clickSearchBtn();
 })
 
 
@@ -57,17 +57,15 @@ Then("Verify property details",() => {
 
 
 When("Type {string} to the search box",(searchText) => {
-    cy.xpath('(//input[@data-testid="input"])[1]').type(searchText);
+    mainPage.searchText(searchText);
 })
 
 
 Then("Select the first matched suggestion from list",()=>{
-    cy.get('.multi-selection-autocomplete__suggestions-container>:nth-child(1)').click();
+    mainPage.selectNthSuggestion(1);
 })
 
 
-Then("Verify Available from date is not null",() => {
-    cy.wrap(propDetailsPage.verifyPropertyNotNull()).then((result)=>{
-        expect(result).to.equal(true);
-    })
+Then("Verify {string} date is not null",(property) => {
+    propDetailsPage.verifyPropertyNotNull(property);
 })

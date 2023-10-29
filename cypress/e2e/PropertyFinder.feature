@@ -23,5 +23,4 @@ Feature: Property Search Feature E2E Verification
         Then Select the first matched suggestion from list
         Then Click to search icon for search
         Then Go to '1' property details page
-        Then Verify Available from date is not null
-
+        Then Verify 'Available from' date is not null

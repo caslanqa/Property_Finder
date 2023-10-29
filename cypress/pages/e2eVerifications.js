@@ -17,7 +17,31 @@ class E2eVerifications {
                 expect(body.description).to.eq(desc);
             })
         })
-
+        propDetailsPage.getLocation.then((location)=>{
+            cy.wrap(propDetails).then((body)=>{
+                expect(body.location.full_name).to.contains(location);
+            })
+        })
+        propDetailsPage.getPropertyBath.then((bath)=>{
+            cy.wrap(propDetails).then((body)=>{
+                expect(body.bathrooms).to.eq(bath);
+            })
+        })
+        propDetailsPage.getPropertyPrice.then((price)=>{
+            cy.wrap(propDetails).then((body)=>{
+                expect(body.price.value).to.contains(price);
+            })
+        })
+        propDetailsPage.getPropertySize.then((size)=>{
+            cy.wrap(propDetails).then((body)=>{
+                expect(body.size.value).to.eq(size);
+            })
+        })
+        propDetailsPage.getTitle.then((title)=>{
+            cy.wrap(propDetails).then((body)=>{
+                expect(body.title).to.eq(title);
+            })
+        })
     }
 }
 const verifications = new E2eVerifications();

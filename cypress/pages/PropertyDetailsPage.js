@@ -37,8 +37,8 @@ class PropertyDetailsPage{
         })
     }
 
-    verifyPropertyNotNull(){
-        cy.xpath('//span[text()="Available from:"]/ancestor::li//div[2]')
+    checkProperty(property){
+        cy.xpath('//span[text()="'+property+':"]/ancestor::li//div[2]')
             .should('exist').then((elementExist)=>{
                 if(elementExist){
                     return true;
@@ -47,6 +47,13 @@ class PropertyDetailsPage{
                 }
             })
     }
+    verifyPropertyNotNull(property){
+        cy.wrap(this.checkProperty(property)).then((bool)=>{
+            expect(bool).to.equal(true);
+        })
+    }
+
+
 }
 const propDetailsPage = new PropertyDetailsPage();
 export default propDetailsPage;
