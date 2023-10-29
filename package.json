@@ -4,7 +4,7 @@
   "description": "",
   "main": "e2e.js",
   "scripts": {
-    "propertyFinder": "npx cypress run --spec 'cypress/e2e/'"
+    "propertyFinder": "npx cypress run --spec 'cypress/e2e/' --browser chrome"
   },
   "author": "Cihan Aslan",
   "license": "ISC",
