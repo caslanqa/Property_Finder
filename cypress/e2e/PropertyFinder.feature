@@ -18,7 +18,6 @@ Feature: Property Search Feature E2E Verification
         Then Go to '1' property details page
         Then Verify property details
 
-    @smoke
     Scenario: TC_3 | Property Available time verification
         When Type 'Bahrain Bay' to the search box
         Then Select the first matched suggestion from list
