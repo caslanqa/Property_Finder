@@ -1,5 +1,3 @@
-import { Runnable } from "mocha";
-
 class PropertyDetailsPage{
     getTitle(){
         return cy.get('.panel.panel--style1.panel--style3 > h1').invoke('text').then((title)=>{
